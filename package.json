@@ -1,0 +1,28 @@
+{
+  "name": "claude-profile-usage",
+  "private": true,
+  "version": "0.0.0",
+  "files": [
+    "paseo-plugin.json",
+    "OVERVIEW.md",
+    "LICENSE",
+    "icon.svg",
+    "index.server.ts",
+    "server/"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "sync-builtin": "B=\"${PASEO_BUILTIN:-/Applications/Paseo.app/Contents/Resources/builtin-plugins/claude-usage-source}\" && rm -rf server/claude-usage-source/server server/claude-usage-source/shared && cp -R \"$B/server\" \"$B/shared\" server/claude-usage-source/"
+  },
+  "devDependencies": {
+    "@getpaseo/plugin": "0.17.3",
+    "@types/node": "^22.20.5",
+    "typescript": "^5.9.3",
+    "zod": "^4.4.3"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/banthaherder/paseo-claude-profile-usage"
+  }
+}

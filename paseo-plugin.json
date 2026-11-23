@@ -1,0 +1,9 @@
+{
+  "id": "claude-profile-usage",
+  "name": "Claude profile usage",
+  "description": "Plan usage cards for each Claude provider that sets its own CLAUDE_CONFIG_DIR.",
+  "media": [],
+  "requirements": {
+    "paseo": ">=0.17.3"
+  }
+}
