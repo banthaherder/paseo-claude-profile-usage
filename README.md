@@ -24,7 +24,7 @@ If you use multiple Claude accounts in Paseo, you typically configure providers 
 }
 ```
 
-Paseo's built-in Claude card reads the daemon's environment, which has no `CLAUDE_CONFIG_DIR`. As a result, it only sees the default `~/.claude` login (which may be stale or missing) and none of the accounts your agents actually use.
+Paseo's built-in Claude card reads the daemon's environment, which has no `CLAUDE_CONFIG_DIR`. As a result, it shows the default `~/.claude` login, which may be stale or missing. It picks up another account only after you open an agent's usage, and only for that agent's account.
 
 ## What it does
 
@@ -40,7 +40,7 @@ Paseo's built-in Claude card reads the daemon's environment, which has no `CLAUD
 paseo plugin install github:banthaherder/paseo-claude-profile-usage
 ```
 
-Open the Usage panel's Sources list and hide the built-in "Claude" card if it only shows a stale login. After adding or renaming a provider, run `paseo plugin reload claude-profile-usage`.
+Hide the built-in "Claude" card in the Usage panel's Sources list. Otherwise, it keeps the stale `~/.claude` login and, after you open an agent's usage, shows that agent's account again next to this plugin's card for the same provider. Paseo groups logins only within a single source, so the plugin cannot merge the two cards. After adding or renaming a provider, run `paseo plugin reload claude-profile-usage`.
 
 Requires Paseo 0.17.3 or later. Tested on macOS, where Claude Code stores each config directory's login in the Keychain. On other platforms, it reads `.credentials.json` from the config directory (untested).
 
